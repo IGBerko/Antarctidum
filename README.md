@@ -5,7 +5,7 @@
 [![Electron](https://img.shields.io/badge/Electron-28-47848F?style=flat-square&logo=electron)](https://www.electronjs.org/)
 [![Monaco](https://img.shields.io/badge/Monaco-Editor-blue?style=flat-square)](https://microsoft.github.io/monaco-editor/)
 [![License](https://img.shields.io/badge/License-MIT,IPL-green?style=flat-square)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Win%20|Linux%20-lightgrey?style=flat-square)]()
+[![Platform](https://img.shields.io/badge/Platform-Win%20|%20Linux%20-lightgrey?style=flat-square)]()
 
 <br/>
 
