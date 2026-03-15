@@ -89,11 +89,11 @@
 
 | Platform | Download | Architecture |
 |----------|----------|--------------|
-| Windows | [https://www.antarctidum.itrypro.ru/antarctidum.exe](#) | x64 |
-| Linux | [https://www.antarctidum.itrypro.ru/antarctidum.tar.xz](#) | x64 |
+| Windows | [⇩](https://www.antarctidum.itrypro.ru/antarctidum.exe) | x64 |
+| Linux | [⇩](https://www.antarctidum.itrypro.ru/antarctidum.tar.xz) | x64 |
 
 
-> Releases will be available on the [Releases](https://github.com/user/antarctidum/releases) page.
+> Releases will be available on the [Releases](https://github.com/IGBerko/antarctidum/releases) page.
 
 ---
 
