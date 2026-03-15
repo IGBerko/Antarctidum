@@ -97,4 +97,4 @@
 ---
 
 ## Contributing
-Itry. Mit license
+Itry. Mit license, IPL 2.0
