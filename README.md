@@ -5,11 +5,9 @@
 [![Electron](https://img.shields.io/badge/Electron-28-47848F?style=flat-square&logo=electron)](https://www.electronjs.org/)
 [![Monaco](https://img.shields.io/badge/Monaco-Editor-blue?style=flat-square)](https://microsoft.github.io/monaco-editor/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Win%20|%20Mac%20|%20Linux-lightgrey?style=flat-square)]()
+[![Platform](https://img.shields.io/badge/Platform-Win%20-lightgrey?style=flat-square)]()
 
 <br/>
-
-<img src="https://raw.githubusercontent.com/user/antarctidum/main/screenshots/hero.png" alt="Antarctidum Screenshot" width="800"/>
 
 <br/>
 
@@ -18,7 +16,7 @@
 
 <br/>
 
-[Download](#-download) · [Features](#-features) · [Screenshots](#-screenshots) · [Plugins](#-plugin-system) · [Build](#️-build-from-source) · [Contributing](#-contributing)
+[Download](#-download) · [Features](#-features)· [Plugins](#-plugin-system) ·  [Contributing](#-contributing)
 
 </div>
 
