@@ -96,4 +96,5 @@
 
 ---
 
-## 🛠️ Build from Source
+## Contributing
+Itry. Mit license
