@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://antarctidum.itrypro.ru;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' file:;
+    style-src 'self' 'unsafe-inline' file:;
+    font-src 'self' file: data:;
+    img-src 'self' data: file: https:;
+    connect-src 'self' https://antarctidum.itrypro.ru;">
+  <title>Antarctidum</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- TITLEBAR -->
+<div id="titlebar">
+  <div class="titlebar-drag">
+    <div class="titlebar-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#89b4fa"/>
+        <path d="M2 17L12 22L22 17" stroke="#89b4fa" stroke-width="2" fill="none"/>
+        <path d="M2 12L12 17L22 12" stroke="#89b4fa" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <span class="titlebar-title">Antarctidum</span>
+    <div class="titlebar-menu">
+      <button class="menu-btn" data-menu="file">File</button>
+      <button class="menu-btn" data-menu="edit">Edit</button>
+      <button class="menu-btn" data-menu="view">View</button>
+      <button class="menu-btn" data-menu="help">Help</button>
+    </div>
+  </div>
+  <div class="titlebar-controls">
+    <button id="btn-minimize" class="control-btn" title="Minimize">
+      <svg width="12" height="12" viewBox="0 0 12 12"><rect y="5" width="12" height="2" fill="currentColor"/></svg>
+    </button>
+    <button id="btn-maximize" class="control-btn" title="Maximize">
+      <svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </button>
+    <button id="btn-close" class="control-btn close-btn" title="Close">
+      <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="main-container">
+
+  <!-- ACTIVITY BAR -->
+  <div id="activity-bar">
+    <button class="activity-btn active" data-panel="explorer" title="Explorer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 7V17C3 18.1 3.9 19 5 19H19C20.1 19 21 18.1 21 17V9C21 7.9 20.1 7 19 7H11L9 5H5C3.9 5 3 5.9 3 7Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </button>
+    <button class="activity-btn" data-panel="search" title="Search">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M16 16L21 21" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <button class="activity-btn" data-panel="extensions" title="Extensions">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <div class="activity-spacer"></div>
+    <button class="activity-btn" data-panel="settings-panel" title="Settings">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 1V4M12 20V23M4.22 4.22L6.34 6.34M17.66 17.66L19.78 19.78M1 12H4M20 12H23M4.22 19.78L6.34 17.66M17.66 6.34L19.78 4.22" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div id="panel-explorer" class="sidebar-panel active">
+      <div class="panel-header">
+        <span data-i18n="explorer">EXPLORER</span>
+        <div class="panel-actions">
+          <button class="icon-btn" id="btn-new-file" title="New File">
+            <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <button class="icon-btn" id="btn-new-folder" title="New Folder">
+            <svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 4V12C2 12.55 2.45 13 3 13H13C13.55 13 14 12.55 14 12V6C14 5.45 13.55 5 13 5H8L6.5 3H3C2.45 3 2 3.45 2 4Z" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M8 7V11M6 9H10" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
+          <button class="icon-btn" id="btn-refresh" title="Refresh">
+            <svg width="16" height="16" viewBox="0 0 16 16"><path d="M13.5 2.5V6H10M2.5 13.5V10H6" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M3.5 5.5A5.5 5.5 0 0112.5 6M12.5 10.5A5.5 5.5 0 013.5 10" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="file-tree" class="panel-content">
+        <div class="empty-state">
+          <p data-i18n="noFolder">No folder opened</p>
+          <button id="btn-open-folder" class="primary-btn" data-i18n="openFolder">Open Folder</button>
+        </div>
+      </div>
+    </div>
+    <div id="panel-search" class="sidebar-panel">
+      <div class="panel-header"><span data-i18n="search">SEARCH</span></div>
+      <div class="panel-content">
+        <div class="search-container">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" placeholder="Search..." class="search-field">
+            <div class="search-input-actions">
+              <button class="search-option-btn" id="search-case-btn" title="Case">Aa</button>
+              <button class="search-option-btn" id="search-word-btn" title="Word">W</button>
+              <button class="search-option-btn" id="search-regex-btn" title="Regex">.*</button>
+            </div>
+          </div>
+          <div class="search-input-wrap">
+            <input type="text" id="replace-input" placeholder="Replace..." class="search-field">
+            <div class="search-input-actions">
+              <button class="icon-btn" id="btn-replace-all" title="Replace All">All</button>
+            </div>
+          </div>
+          <div class="search-info" id="search-info"></div>
+        </div>
+        <div id="search-results" class="search-results"></div>
+      </div>
+    </div>
+    <div id="panel-extensions" class="sidebar-panel">
+      <div class="panel-header">
+        <span data-i18n="extensions">EXTENSIONS</span>
+        <div class="panel-actions">
+          <button class="icon-btn" id="btn-refresh-extensions" title="Refresh">↻</button>
+        </div>
+      </div>
+      <div class="panel-content" id="extensions-content">
+        <div class="extensions-search-wrap">
+          <input type="text" id="extensions-search" placeholder="Search extensions..." class="search-field">
+        </div>
+        <div class="extensions-section">
+          <div class="extensions-section-title" data-i18n="installed">INSTALLED</div>
+          <div id="installed-list" class="extensions-list"></div>
+        </div>
+        <div class="extensions-section">
+          <div class="extensions-section-title" data-i18n="marketplace">MARKETPLACE</div>
+          <div id="marketplace-list" class="extensions-list"></div>
+        </div>
+      </div>
+    </div>
+    <div id="panel-settings-panel" class="sidebar-panel">
+      <div class="panel-header"><span data-i18n="settings">SETTINGS</span></div>
+      <div class="panel-content">
+        <div class="settings-nav">
+          <div class="settings-nav-item active" data-section="editor" data-i18n="editor">Editor</div>
+          <div class="settings-nav-item" data-section="appearance" data-i18n="appearance">Appearance</div>
+          <div class="settings-nav-item" data-section="terminal-settings" data-i18n="terminal">Terminal</div>
+          <div class="settings-nav-item" data-section="files" data-i18n="files">Files</div>
+          <div class="settings-nav-item" data-section="extensions-settings" data-i18n="extensions">Extensions</div>
+          <div class="settings-nav-item" data-section="about" data-i18n="about">About</div>
+        </div>
+      </div>
+    </div>
+    <div id="sidebar-resize" class="resize-handle-vertical"></div>
+  </div>
+
+  <!-- EDITOR AREA -->
+  <div id="editor-area">
+    <div id="tabs-container">
+      <div id="tabs-list"></div>
+      <div class="tabs-actions">
+        <button class="icon-btn" id="btn-split" title="Split">⫿</button>
+      </div>
+    </div>
+    <div id="breadcrumb"></div>
+    <div id="editor-container">
+      <div id="welcome-screen">
+        <div class="welcome-content">
+          <div class="welcome-logo">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#89b4fa"/>
+              <path d="M2 17L12 22L22 17" stroke="#89b4fa" stroke-width="2" fill="none"/>
+              <path d="M2 12L12 17L22 12" stroke="#89b4fa" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <h1>Antarctidum<p>BetaTest 1</p></h1>
+          <p class="welcome-subtitle">Modern Code Editor v0.0.1</p>
+          <div class="welcome-shortcuts">
+            <div class="shortcut-group">
+              <h3 data-i18n="start">Start</h3>
+              <div class="shortcut-item" id="welcome-new-file"><span class="shortcut-label" data-i18n="newFile">New File</span><kbd>Ctrl+N</kbd></div>
+              <div class="shortcut-item" id="welcome-open-file"><span class="shortcut-label" data-i18n="openFile">Open File</span><kbd>Ctrl+O</kbd></div>
+              <div class="shortcut-item" id="welcome-open-folder"><span class="shortcut-label" data-i18n="openFolder">Open Folder</span><kbd>Ctrl+Shift+O</kbd></div>
+            </div>
+            <div class="shortcut-group">
+              <h3 data-i18n="tools">Tools</h3>
+              <div class="shortcut-item"><span class="shortcut-label">Command Palette</span><kbd>Ctrl+Shift+P</kbd></div>
+              <div class="shortcut-item"><span class="shortcut-label" data-i18n="terminal">Terminal</span><kbd>Ctrl+`</kbd></div>
+              <div class="shortcut-item"><span class="shortcut-label" data-i18n="settings">Settings</span><kbd>Ctrl+,</kbd></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="monaco-editor" style="display:none;"></div>
+      <div id="settings-page" style="display:none;">
+        <div class="settings-page-container">
+          <div class="settings-page-header">
+            <h2 data-i18n="settings">Settings</h2>
+            <input type="text" id="settings-search" placeholder="Search settings..." class="search-field">
+          </div>
+          <div id="settings-content" class="settings-content"></div>
+        </div>
+      </div>
+    </div>
+    <!-- TERMINAL -->
+    <div id="terminal-area" style="display:none;">
+      <div id="terminal-resize" class="resize-handle-horizontal"></div>
+      <div id="terminal-header">
+        <div class="terminal-tabs">
+          <button class="terminal-tab active" data-i18n="terminal">Terminal</button>
+        </div>
+        <div class="terminal-actions">
+          <button class="icon-btn" id="btn-terminal-clear" title="Clear">✕</button>
+          <button class="icon-btn" id="btn-terminal-toggle" title="Hide">▼</button>
+        </div>
+      </div>
+      <div id="terminal-container"></div>
+    </div>
+  </div>
+</div>
+
+<!-- STATUS BAR -->
+<div id="statusbar">
+  <div class="statusbar-left">
+    <span class="status-item" id="status-branch">⎇ main</span>
+    <span class="status-item" id="status-errors">✕ 0</span>
+    <span class="status-item" id="status-warnings">⚠ 0</span>
+    <div id="status-plugins"></div>
+  </div>
+  <div class="statusbar-right">
+    <span class="status-item" id="status-cursor">Ln 1, Col 1</span>
+    <span class="status-item" id="status-indent">Spaces: 2</span>
+    <span class="status-item" id="status-encoding">UTF-8</span>
+    <span class="status-item" id="status-eol">LF</span>
+    <span class="status-item" id="status-language">Plain Text</span>
+  </div>
+</div>
+
+<!-- COMMAND PALETTE -->
+<div id="command-palette" class="hidden">
+  <div class="palette-backdrop"></div>
+  <div class="palette-container">
+    <input type="text" id="palette-input" placeholder="> Type a command...">
+    <div id="palette-results"></div>
+  </div>
+</div>
+
+<!-- CONTEXT MENU -->
+<div id="context-menu" class="hidden">
+  <div class="context-menu-list"></div>
+</div>
+
+<div id="notification-container"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
