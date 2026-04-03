@@ -94,6 +94,15 @@
 
 
 > Releases will be available on the [Releases](https://github.com/IGBerko/antarctidum/releases) page.
+## Star History
+
+<a href="https://www.star-history.com/?repos=louis-e%2Farnis&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=louis-e/arnis&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=louis-e/arnis&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=louis-e/arnis&type=date&legend=top-left" />
+ </picture>
+</a>
 
 ---
 
